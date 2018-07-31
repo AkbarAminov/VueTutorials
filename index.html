@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue 1st step</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+</head>
+<body>
+        <div class="container pt-5" id="app">
+            <div class="row mb-3">
+                <div class="col">
+                    <h1>Cars Application</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="search">Find your car</label>
+                        <input type="text" class="form-control" id="search">
+                    </div>
+                    <hr>
+
+                    <ul class="list-group">
+                        <li
+                                v-for="(car, index) of cars"
+                                class="list-group-item list-group-item-action pointer"
+                                v-on:click="selectCar( index )"
+                        >
+
+                            {{ car.name }} - {{ car.model }}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-8 pt-4">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h2>{{ car.name }}</h2>
+                            <img
+                                    :src="car.image"
+                                    :alt=" car.name "
+                                    class="rounded detailed-car-image">
+                        </div>
+                        <div class="col-md-7 pt-3 pl-5">
+                            <h5>Car Detailes</h5>
+
+                            <ul>
+                                <li>Model - <strong>{{car.model}}</strong></li>
+                                <li>Year - <strong>{{car.year}}</strong></li>
+                                <li>Owner - <strong>{{car.owner}}</strong></li>
+                            </ul>
+                            <p> {{car.phone}}</p>
+                            <button class="btn btn-outline-success mr-3"> Show phone </button>
+                            <button class="btn btn-primary"> Buy </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <input
+                v-if = "visible"
+                type="text" >
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src="app.js"></script>
+
+
+
+</body>
+</html>
