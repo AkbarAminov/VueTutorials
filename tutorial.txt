@@ -1,0 +1,78 @@
+Lesson 1
+
+Firstly we make the basic html and css script using bootstrap 4
+
+    <div class="container pt-5" id="app">
+            <div class="row mb-3">
+                <div class="col">
+                    <h1>Cars Application</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="search">Find your car</label>
+                        <input type="text" class="form-control" id="search">
+                    </div>
+                    <hr>
+
+                    <ul class="list-group">
+                        <li> </li>
+                        <li> </li>
+                        <li> </li>
+                    </ul>
+                </div>
+                <div class="col-md-8 pt-4">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h2>Ferrari</h2>
+                            <img src="img/ferrari.jpg" class="rounded detailed-car-image">
+                        </div>
+                        <div class="col-md-7 pt-3 pl-5">
+                            <h5>Car Detailes</h5>
+
+                            <ul>
+                                <li>Model - <strong>250 GTO</strong></li>
+                                <li>Year - <strong>2000</strong></li>
+                                <li>Owner - <strong>Aki</strong></li>
+                            </ul>
+                            <p>+998 97 123 45 67</p>
+                            <button class="btn btn-outline-success mr-3"> Show phone </button>
+                            <button class="btn btn-primary"> Buy </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+Lesson 2
+
+We add Vue js using cdn
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+and add the script.js for texting in js file
+
+    <script src="app.js"></script>
+
+after putting all staff we should activate it
+
+we use this construction
+
+    new Vue({
+        el: '#app',
+        data: {
+
+        },
+        methods: {
+
+        }
+    })
+
+and in HTML we give to our big <div> which contains all thing the id = "app"
+
+in data we open 'car' variable and put them its meanings like (name, model, and etc.)
+

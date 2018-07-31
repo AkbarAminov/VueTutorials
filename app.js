@@ -20,11 +20,45 @@ new Vue({
     data: {
         cars: cars,
         car: cars[0],
-        visible: true
+        logs:[]
+        selectCarIndex: 0,
+        phoneVisibility: false,
+        search: '',
+        modalVisibility: false
     },
     methods: {
         selectCar: function (index) {
-            this.car = cars[index]
+            this.car = cars[index],
+            this.selectCarIndex = index
+        },
+        newOrder(){
+            this.modalVisibility = false
+        },
+        cancelOrder(){
+            this.modalVisibility = false
         }
+
+    },
+    computed: {
+        phoneBtnText: function(){
+            return this.phoneVisibility ? 'Hide phone': 'Show phone'
+        },
+
+        filteredCars(){
+
+            return this.cars.filter(car =>{
+                return car.name.indexOf(this.search) > -1 || car.model.indexOf(this.search) > -1
+            })
+
+        }
+       /* filteredCars(){
+            var self = this
+            const filterd = this.cars.filter(function(car){
+                return car.name.indexOf(self.search) > -1
+            })
+
+            return filterd
+        }*/
     }
+
 })
