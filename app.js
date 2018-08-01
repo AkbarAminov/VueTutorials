@@ -5,7 +5,7 @@
 }*/
 
 const car = ( name, model, owner, year, phone, image) => ({name, model, owner, year, phone, image})
-
+const log = (text, type, date = new Date()) => ({text, type, date})
 
 const cars = [
     car('Ferrari', '250 GTO', 'Aki', 1998, '+998 97 123 45 67', 'img/ferrari.jpg'),
@@ -20,7 +20,7 @@ new Vue({
     data: {
         cars: cars,
         car: cars[0],
-        logs:[]
+        logs:[],
         selectCarIndex: 0,
         phoneVisibility: false,
         search: '',
@@ -33,11 +33,16 @@ new Vue({
         },
         newOrder(){
             this.modalVisibility = false
+            this.logs.push(
+                log(`Canceled order: ${this.car.name} - ${this.car.model}`, 'ok')
+            )
         },
         cancelOrder(){
             this.modalVisibility = false
+            this.logs.push(
+                log(`Success order: ${this.car.name} - ${this.car.model}`, 'cnl')
+            )
         }
-
     },
     computed: {
         phoneBtnText: function(){
@@ -59,6 +64,11 @@ new Vue({
 
             return filterd
         }*/
+    },
+    filters:{
+      date(value){
+          return value.toLocaleString()
+      }
     }
 
 })
